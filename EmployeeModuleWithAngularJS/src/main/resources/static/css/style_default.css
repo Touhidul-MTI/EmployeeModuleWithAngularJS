@@ -1,0 +1,133 @@
+body {
+	font-size: 1.4em;
+	color: #111;
+}
+
+.navbar-brand{
+	padding-left: 45px;
+}
+.navbar-inverse .navbar-brand{
+	color: #FAFAFA;
+	cursor: pointer;
+}
+.navbar-inverse .navbar-brand:hover{
+	color: #ffc107;
+}
+.custom-body {
+	background: #FAFAFA;
+	/* padding-top: 70px; */
+}
+.mypadding-bottom-70{
+	padding-bottom: 70px;
+}
+
+.navbar {
+	background: #232f3e;
+}
+
+.navbar-default {
+	background: #232f3e;
+}
+
+.mybutton1 {
+	border-top-color: rgb(200, 148, 17);
+	border-right-color: rgb(176, 130, 15);
+	border-bottom-color: rgb(153, 113, 13);
+	border-left-color: rgb(176, 130, 15);
+	background: linear-gradient(to bottom, #f8e3ad, #eeba37);
+	background: -moz-linear-gradient(top, #f8e3ad, #eeba37);
+}
+
+.mybutton1:hover {
+	cursor: pointer;
+	color: #c45500;
+	background: #f3ce72;
+}
+
+.mybutton2 {
+	background: linear-gradient(#FAFAFA, #888);
+}
+
+.mybutton2:hover {
+	background: linear-gradient(#999, #FAFAFA);
+}
+
+.mybutton3 {
+	color: #FAFAFA;
+	border-top-color: rgb(200, 148, 17);
+	border-right-color: rgb(176, 130, 15);
+	border-bottom-color: rgb(153, 113, 13);
+	border-left-color: rgb(176, 130, 15);
+	background: linear-gradient(to bottom, #f8e3ad, #eeba37);
+	background: -moz-linear-gradient(top, #b696ad, #75526b);
+}
+
+.mybutton3:hover {
+	cursor: pointer;
+	color: #FAFAFA;
+	background: #966989
+}
+
+.mybackground1 {
+	background: linear-gradient(#f2f2f2, #bfbfbf, #f2f2f2);
+	border-color: #bfbfbf;
+}
+
+.mybackground2 {
+	background: linear-gradient(#999, #f2f2f2);
+}
+.mybackground3{
+	background: #232f3e;
+}
+.mymargin10 {
+	margin: 10px;
+}
+
+.mymargin-bottom10 {
+	margin-bottom: 10px;
+}
+
+.mywidth_full {
+	width: 100%;
+}
+
+.mywidth_mx100 {
+	max-width: 100px;
+}
+
+.mywidth_mx400 {
+	max-width: 400px;
+}
+
+.mycolor1 {
+	color: #232f3e;
+}
+
+.mycolor2 {
+	color: #f3ce72;
+}
+
+.mycolor3 {
+	color: #FAFAFA;
+}
+
+tbody tr a {
+	display: block;
+	cursor: pointer;
+}
+
+.mypadding15 {
+	padding: 15px;
+}
+
+.error {
+	color: red;
+	margin-left: 5px;
+}
+h3{
+	color: #75526b;
+}
+
+.breadcrumb li{
+	font-size: 1.6em;
+}

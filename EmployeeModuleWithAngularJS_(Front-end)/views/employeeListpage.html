@@ -1,0 +1,107 @@
+<div class="row" style="margin-bottom: 15px;">
+	<div class="col-md-2 col-sm-2  col-xs-2"></div>
+	<div class="col-md-7 col-sm-7 col-xs-7" style="padding-right: 0px;">
+		<input style="border: 2px solid #b696ad;" class="form-control" type="text" ng-change="submitSearchQuery()" ng-model="inputEmployeeName"
+		 placeholder="Enter employee name to search (Normal search _from db)" />
+	</div>
+	<div class="col-md-1 col-sm-1 col-xs-3" style="padding-left: 0px;">
+		<button class="btn btn-default mybutton3 form-control" ng-click="submitSearchQuery()">
+			<span class="glyphicon glyphicon-search"> </span>
+		</button>
+	</div>
+	<div class="col-md-2 col-sm-2 col-xs-1"></div>
+</div>
+<hr>
+<!-- end of search area 1-->
+
+<fieldset ng-repeat="selection in selections">
+	<div class="row" style="margin-bottom: 15px;">
+		<div class="col-md-2 col-sm-4">
+			<select ng-model="selection.searchBy" ng-change="submitAdvanceSearchQuery()" style="border: 2px solid #b696ad; padding: 5px;">
+				<option value="" disabled selected>Search by</option>
+				<option value='employeeName'>Employee name</option>
+				<option value='workingAddress'>Working address</option>
+				<option value='workLocation'>Work location</option>
+				<option value='workMobile'>Work Mobile</option>
+				<option value='workEmail'>Work email</option>
+				<option value='department'>Department</option>
+				<option value='jobTitle'>JobTitle</option>
+			</select>
+		</div>
+
+		<div class="col-md-7 col-sm-6 col-xs-6" style="padding-right: 0px;">
+			<input ng-change="submitAdvanceSearchQuery()" style="border: 2px solid #b696ad;" class="form-control" type="text" ng-model="selection.input"
+			 name="" placeholder="Enter employee name to search (Advance search _from loaded)" />
+		</div>
+
+		<div class="col-md-1 col-sm-1 col-xs-1">
+			<select ng-model="selection.operator" style="border: 2px solid #b696ad; padding: 5px;" ng-change="submitAdvanceSearchQuery()">
+				<option value="" disabled selected>Operator</option>
+				<option value='AND'>AND</option>
+				<option value='OR'>OR</option>
+			</select>
+		</div>
+		<div class="col-md-1 col-sm-1 col-xs-1">
+			<button ng-show="$last" ng-click="removeSelection()">
+				<span class="glyphicon glyphicon-remove text-danger"></span>
+			</button>
+		</div>
+	</div>
+</fieldset>
+
+<div class="row">
+	<div class="col-md-2 col-sm-2 col-xs-1">
+		<a class="btn btn-default mybutton3" ng-click="addMoreSelections()">
+			<span class="glyphicon glyphicon-plus"></span> Add option</a>
+	</div>
+	<div class="col-md-10 col-sm-10 col-xs-11"></div>
+
+</div>
+<br>
+<!-- end of search area 2-->
+
+<div class="row container-fluid">
+	<ul class="breadcrumb">
+		<li class="active">Employees</li>
+	</ul>
+</div>
+
+<div class="row container-fluid">
+	<div>
+		<a class="btn btn-default mybutton3 pull-left mymargin-bottom10" ng-href="#/create">
+			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create
+		</a>
+		<div class="pull-right">
+			<a>{{pageInfo}}</a>
+			<Button ng-click="gotoPreviousPage()" class="d-inline" href="#">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+			</Button>
+			<Button ng-click="gotoNextPage()" class="d-inline">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			</Button>
+		</div>
+	</div>
+</div>
+<!-- end of row container-fluid -->
+
+<div class="row container-fluid">
+	<div class="table-responsive">
+
+		<table ng-table="tableParams" class="table table-bordered table-striped text-center">
+			<tr ng-repeat="employee in $data | filter:advanceSearch">
+
+				<td title="'Name'">
+					<a href='#/{{employee.id}}'>{{employee.employeeName}}</a>
+				</td>
+				<td title="'Work Phone'">{{employee.workPhone}}</td>
+				<td title="'Work Email'">{{employee.workEmail}}</td>
+				<td title="'Department'">{{employee.department}}</td>
+				<td title="'Job Title'">{{employee.jobTitle}}</td>
+				<td title="'Manager'">
+					<span>{{employee.manager==null ? 'Not provided' : employee.manager}}</span>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<!-- end of container-fluid -->

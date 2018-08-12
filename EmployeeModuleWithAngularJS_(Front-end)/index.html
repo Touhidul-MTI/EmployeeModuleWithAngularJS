@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Employee Module</title>
+
+	<!-- css -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../css/animate.css" rel="stylesheet">
+	<link rel="stylesheet" href="../css/font-awesome.min.css">
+
+	<!-- <link rel="stylesheet"; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
+<script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script> -->
+
+	<link rel="stylesheet" href="../css/style_default.css">
+	<link rel="stylesheet" href="../css/style_sidebar_category.css">
+
+	<!-- javascript -->
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/angular.min.js"></script>
+	<script src="../js/angular-route.min.js"></script>
+
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-table/1.0.0/ng-table.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ng-table/1.0.0/ng-table.js"></script>
+
+
+	<script src="../js/employee/app.js"></script>
+	<script src="../js/employee/controller.js"></script>
+	<script src="../js/employee/service.js"></script>
+	<script src="../js/employee/config.js"></script>
+	<script src="../js/employee/directive.js"></script>
+	<!-- 
+<script src="../js/employee/filter.js"></script>
+<script src="../js/employee/directive.js"></script> -->
+
+	<!--this base is just to remove '#' from url in browser (optional) - see config.js file -->
+	<base href="/">
+</head>
+
+<body class="custom-body" ng-app="employeeApp">
+
+	<div class="container-fluid">
+
+		<div class="row">
+
+			<div class="hidden-xs mypadding-bottom-70">
+				<nav class="navbar navbar-inverse navbar-fixed-top">
+					<li>
+						<a ng-href="#/" class="navbar-brand">Employees</a>
+					</li>
+				</nav>
+			</div>
+
+			<!-- <div ng-controller="employeeListController"> -->
+
+			<div class="col-md-2 col-sm-3 sidenav">
+
+				<div class="nav-side-menu">
+					<!-- <a class="brand" href="#">Employee</a> -->
+					<ul>
+						<li>
+							<a class="brand" ng-href="#/">EMPLOYEE</a>
+						</li>
+					</ul>
+
+					<i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+					<div class="menu-list">
+						<ul id="menu-content" class="menu-content collapse out">
+							<!-- <li><a href="/employees">Employees</a></li> -->
+							<li>
+								<a ng-href="#/">Employees</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- end of sidenav -->
+
+			<div class="col-md-10 col-sm-9">
+				<div ng-view></div>
+
+			</div>
+			<!-- end of body content area, parent column -->
+
+			<!-- </div> -->
+			<!-- end of employeeList controller -->
+		</div>
+		<!-- end of row -->
+
+	</div>
+	<!-- javascript -->
+	<script src="../js/bootstrap.min.js"></script>
+</body>
+
+</html>

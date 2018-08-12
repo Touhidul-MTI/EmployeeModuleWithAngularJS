@@ -1,0 +1,121 @@
+<div class="row">
+	<div class="col-md-6 col-sm-6">
+		<h3>Contact Informaton</h3>
+
+		<div class="form-group row">
+			<label for="workingAddress" class="col-sm-4 control-label">Working Address
+			</label>
+
+			<div class="col-sm-8">
+				<label ng-show="isVisible_detailsMode"  class="control-label text-info">{{responsedEmployee.workingAddress}}</label>
+				<select ng-show="isVisible_createMode" class="form-control" ng-model="employeeField.workingAddress" name="workingAddress"
+				 id="workingAddress" required>
+					<option ng-repeat="company in companies">{{company.companyName}}</option>
+				</select>
+				<span ng-show="isVisible_createMode" class="text-danger">{{errors.workingAddress}}</span>
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label for="workMobile" class="col-sm-4 control-label">Work Mobile
+			</label>
+			<div class="col-sm-8">
+				<directive-input-field details-mode-visible='isVisible_detailsMode' create-mode-visible='isVisible_createMode' employee-detail="responsedEmployee.workMobile"
+				 input-field='employeeField.workMobile' error-message='errors.workMobile'></directive-input-field>
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label for="workLocation" class="col-sm-4 control-label">Work Location
+			</label>
+			<div class="col-sm-8">
+				<directive-input-field details-mode-visible='isVisible_detailsMode' create-mode-visible='isVisible_createMode' employee-detail="responsedEmployee.workLocation"
+				 input-field='employeeField.workLocation' error-message='errors.workLocation'></directive-input-field>
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label for="workEmail" class="col-sm-4 control-label">Work Email
+			</label>
+			<div class="col-sm-8">
+				<label ng-show="isVisible_detailsMode" class="control-label text-info">{{responsedEmployee.workEmail}}</label>
+				<input ng-model="employeeField.workEmail" ng-show="isVisible_createMode" type="email" value="" class="form-control" name="workEmail"
+				 required id="workEmail">
+				<span ng-show="isVisible_createMode" class="text-danger">{{errors.workEmail}}</span>
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label for="workPhone" class="col-sm-4 control-label">Work Phone
+			</label>
+			<div class="col-sm-8">
+				<directive-input-field details-mode-visible='isVisible_detailsMode' create-mode-visible='isVisible_createMode' employee-detail="responsedEmployee.workPhone"
+				 input-field='employeeField.workPhone' error-message='errors.workPhone'></directive-input-field>
+			</div>
+		</div>
+	</div>
+	<!-- end of contact information col -->
+
+
+	<div class="col-md-6 col-sm-6">
+		<h3>Position</h3>
+
+		<div class="form-group row">
+			<label for="department" class="col-sm-4 control-label">Department</label>
+			<div class="col-sm-8">
+				<label ng-show="isVisible_detailsMode" class="control-label text-info">{{responsedEmployee.department}}</label>
+				<select ng-model="employeeField.department" ng-show="isVisible_createMode" class="form-control" name="department" id="department"
+				 required>
+					<option ng-repeat="department in departments">{{department.departmentName}}</option>
+				</select>
+				<span ng-show="isVisible_createMode" class="text-danger">{{errors.department}}</span>
+
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label for="jobTitle" class="col-sm-4 control-label">Job title
+			</label>
+			<div class="col-sm-8">
+				<label ng-show="isVisible_detailsMode" class="control-label text-info">{{responsedEmployee.jobTitle}}</label>
+				<select ng-model="employeeField.jobTitle" ng-show="isVisible_createMode" class="form-control" name="jobTitle" id="jobTitle"
+				 required>
+					<option ng-repeat="jobTitle in jobTitles">{{jobTitle.jobTitleName}}</option>
+
+				</select>
+				<span ng-show="isVisible_createMode" class="text-danger">{{errors.jobTitle}}</span>
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label for="manager" class="col-sm-4 control-label">Manager</label>
+			<div class="col-sm-8">
+				<label ng-show="isVisible_detailsMode" class="control-label text-info"></label>
+				<select ng-model="employeeField.manager" ng-show="isVisible_createMode" class="form-control" name="manager" id="manager">
+					<option ng-repeat="manager in employeeNames">{{manager}}</option>
+
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label for="coach" class="col-sm-4 control-label">Coach</label>
+			<div class="col-sm-8">
+				<label ng-show="isVisible_detailsMode" class="control-label text-info"></label>
+				<select ng-model="employeeField.coach" ng-show="isVisible_createMode" class="form-control" name="coach" id="coach">
+					<option ng-repeat="coach in employeeNames">{{coach}}</option>
+				</select>
+			</div>
+		</div>
+
+	</div>
+</div>
+<!-- end of row -->
+
+<div class="form-group row">
+	<div class="col-sm-8 mywidth_full">
+		<label ng-show="isVisible_detailsMode" class="control-label text-info">{{responsedEmployee.otherInformation}}</label>
+		<textarea ng-model="employeeField.otherInformation" ng-show="isVisible_createMode" type="text" value="" class="form-control"
+		 name="otherInformation" placeholder="Other Information.." id="otherInformation"></textarea>
+	</div>
+</div>

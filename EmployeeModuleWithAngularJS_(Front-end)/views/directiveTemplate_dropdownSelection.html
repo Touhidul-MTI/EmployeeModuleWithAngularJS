@@ -1,0 +1,6 @@
+<label ng-show="detailsModeVisible" class="control-label text-info" ng-bind="employeeDetail"></label>
+<select ng-show="createModeVisible" class="form-control" ng-model="inputField" name="workingAddress"
+    id="workingAddress" required>
+    <option ng-repeat="company in companies">{{company.companyName}}</option>
+</select>
+<span ng-show="createModeVisible" class="text-danger" ng-bind="errorMessage"></span>

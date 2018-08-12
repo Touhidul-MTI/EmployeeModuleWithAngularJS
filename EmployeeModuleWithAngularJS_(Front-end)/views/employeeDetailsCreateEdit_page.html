@@ -1,0 +1,122 @@
+<div class="row container-fluid">
+	<ul class="breadcrumb">
+		<li>
+			<a ng-href="#/" class="btn">Employees</a>
+		</li>
+		<li class="active">{{responsedEmployee.employeeName}}</li>
+	</ul>
+</div>
+
+<div class="row container-fluid">
+	<div>
+		<div ng-show="isVisible_createMode" class="pull-left mymargin-bottom10">
+			<button ng-show="isVisible_createMode" ng-click="createEmployee(responsedEmployee.id)" class="btn btn-default mybutton3">Save</button>
+			<button ng-show="isVisible_createMode" class="btn btn-default mybutton2" ng-click="isEditMode? backToEmployeeDetails(responsedEmployee.id) : backToEmployeeList()">Discard</button>
+		</div>
+		<div ng-show="isVisible_detailsMode" class="pull-left mymargin-bottom10">
+
+			<a ng-href="#/edit/{{responsedEmployee.id}}" class="btn btn-default mybutton3">
+				<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+				Edit
+			</a>
+
+			<a class="btn btn-default mybutton2" ng-href="#/create"  ng-click="hi()">
+				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+				Create
+			</a>
+		</div>
+
+	</div>
+</div>
+
+
+<div class="row container-fluid">
+	<div class="panel panel-default mypadding15">
+
+		<form name="employeeForm" id="formId" action="" method="">
+
+			<div class="form-group">
+				<!-- to use this employeeId for editing employee -->
+				<input id="employeeId" ng-model="employeeField.employeeId" value="{{responsedEmployee.id}}" hidden name="id">
+			</div>
+
+			<div class="row">
+				<div class=" col-md-4 col-sm-4">
+					<!-- <div class="form-group">
+						<div class="col-sm-8 panel">
+							<div>
+								<img id="photoPreviewId" class="mywidth_mx100 img-responsive" src="{{photo}}" />
+							</div>
+
+							<input ng-show="isVisible_createMode" type="file" class="form-control" name="profilePhoto" id="profilePhoto" ng-model="profilePhoto"
+							 onchange="displayPictureOnBrowse(this)" />
+						</div>
+					</div> -->
+					<!-- below part is just to have profilePicture name as field is in model,
+					  that's why hidden. upper profilePhoto is working for saving image-->
+					<div ng-show="isVisible_createMode" class="form-group hide">
+						<div class="col-sm-8 panel">
+							<img id="empPicture" src="../img/camera.png" ng-model="employeeField.profilePicture" class="img-responsive mywidth_mx100">
+							<input type="file" class="form-control" name="profilePicture" id="profilePicture">
+						</div>
+					</div>
+				</div>
+
+				<div ng-show="isVisible_detailsMode" class="col-md-9 col-sm-9">
+					<h2 id="employeeName" class=" text-info">{{responsedEmployee.employeeName}}</h2>
+				</div>
+				<div ng-show="isVisible_createMode" class="col-md-4 col-sm-4">
+					<div class="form-group">
+						<label for="employeeName" class="control-label">Name</label>
+						<input ng-model="employeeField.employeeName" type="text" value="" class="form-control" name="employeeName" placeholder="Employee's Name"
+						 required id="employeeName">
+						</select>
+						<span ng-show="isVisible_createMode" class="text-danger">{{errors.employeeName}}</span>
+					</div>
+				</div>
+
+				<div ng-show="isVisible_createMode" class="col-md-4 col-sm-4">
+
+					<div class="form-group">
+						<label for="workType" class="control-label">Work Type</label>
+						<select ng-model="employeeField.workType" class="form-control" name="workType" id="workType">
+							<option value="Part Time">Part Time</option>
+							<option value="Full Time">Full Time</option>
+						</select>
+					</div>
+
+				</div>
+
+			</div>
+			<!-- end of row -->
+
+			<ul class="nav nav-tabs">
+				<li class="active">
+					<a data-toggle="tab" href="#publicInformation" target="notToInterfareAngular">Public Information</a>
+				</li>
+				<li>
+					<a data-toggle="tab" href="#personalInformation" target="notToInterfareAngular">Personal Information
+					</a>
+				</li>
+			</ul>
+
+			<div class="tab-content">
+				<div id="publicInformation" class="tab-pane fade in active">
+
+					<!-- load public info form -->
+					<div ng-include="'../views/employeeDetailsCreateEdit_publicInfo_page.html'"></div>
+
+				</div>
+				<div id="personalInformation" class="tab-pane fade">
+
+					<!-- load personal info form -->
+					<div ng-include="'../views/employeeDetailsCreateEdit_personalInfo_page.html'"></div>
+				</div>
+			</div>
+
+		</form>
+
+	</div>
+</div>
+
+<!-- end of employeeList area -->
